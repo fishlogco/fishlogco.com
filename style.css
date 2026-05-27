@@ -37,6 +37,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Navy fallback so iOS Safari safe-area / notch tints navy, not light blue. */
+  background-color: var(--primary-dark);
 }
 
 ::selection {
@@ -111,7 +113,8 @@ img {
 /* ===== Navigation ===== */
 .nav {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  padding: 16px 0;
+  /* Extend nav's navy bg into the iOS safe-area / notch above the viewport. */
+  padding: max(16px, env(safe-area-inset-top)) 0 16px;
   position: sticky;
   top: 0;
   z-index: 100;
