@@ -9,6 +9,12 @@
       content="Log your catches, submit harvest reports to the NC Division of Marine Fisheries, and earn rewards for responsible angling."
     />
     <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -42,95 +48,470 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <img src="images/icon.png" alt="Fish Log app icon" class="hero__icon" />
-        <h1 class="hero__title">Fish Log Co.</h1>
-        <p class="hero__subtitle">
-          Log your catches, submit harvest reports to the NC Division of Marine
-          Fisheries, and earn rewards for responsible angling.
-        </p>
-        <div class="hero__badges">
-          <a
-            href="https://apps.apple.com/us/app/fish-log-co/id6759081462"
-            class="hero__badge"
-          >
-            &#63743; Download on the App Store
-          </a>
-          <a
-            href="https://play.google.com/apps/testing/io.fishlog.app"
-            class="hero__badge"
-          >
-            &#9654; Get it on Google Play
-          </a>
+        <div class="hero__grid">
+          <div class="hero__text">
+            <span class="hero__eyebrow">
+              <span class="hero__eyebrow-dot"></span>
+              Catch. Report. Win.
+            </span>
+            <h1 class="hero__title">
+              <span class="hero__word">Report</span>
+              <span class="hero__word">your</span>
+              <span class="hero__word hero__word--underline">harvest.</span><br />
+              <span class="hero__word">Earn</span>
+              <span class="hero__word">rewards.</span><br />
+              <span class="hero__word">Fish</span>
+              <span class="hero__word">like</span>
+              <span class="hero__word">a</span>
+              <span class="hero__word">North</span>
+              <span class="hero__word">Carolinian.</span>
+            </h1>
+            <p class="hero__subtitle">
+              Log your catches, submit mandatory harvest reports to the NC
+              Division of Marine Fisheries, and enter quarterly drawings for
+              gear and prizes &mdash; all from your phone.
+            </p>
+            <div class="store-badges">
+              <a
+                href="https://apps.apple.com/us/app/fish-log-co/id6759081462"
+                class="store-badge"
+                aria-label="Download on the App Store"
+              >
+                <svg
+                  class="store-badge__icon"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M17.05 12.04c-.02-2.07 1.7-3.07 1.78-3.12-.97-1.42-2.49-1.61-3.02-1.63-1.28-.13-2.51.76-3.16.76-.66 0-1.66-.74-2.74-.72-1.39.02-2.7.82-3.42 2.08-1.47 2.55-.37 6.3 1.04 8.36.7 1.01 1.52 2.13 2.6 2.09 1.05-.04 1.45-.67 2.71-.67s1.62.67 2.73.65c1.13-.02 1.84-1.02 2.53-2.03.8-1.16 1.12-2.3 1.14-2.35-.03-.01-2.17-.83-2.19-3.42zM14.99 6.07c.58-.7.97-1.68.86-2.65-.84.03-1.85.56-2.45 1.26-.54.61-1.01 1.6-.88 2.55.94.07 1.89-.47 2.47-1.16z"
+                  />
+                </svg>
+                <span class="store-badge__text">
+                  <span class="store-badge__line1">Download on the</span>
+                  <span class="store-badge__line2">App Store</span>
+                </span>
+              </a>
+              <a
+                href="https://play.google.com/apps/testing/io.fishlog.app"
+                class="store-badge"
+                aria-label="Get it on Google Play"
+              >
+                <svg
+                  class="store-badge__icon"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3.61 2.05c-.36.36-.57.92-.57 1.65v16.6c0 .73.21 1.29.57 1.65l.06.05L13 12.06v-.12L3.67 2l-.06.05z"
+                    fill="#FFD740"
+                  />
+                  <path
+                    d="M16.11 15.18 13 12.06v-.12l3.11-3.12.07.04 3.69 2.1c1.05.6 1.05 1.58 0 2.18l-3.69 2.1-.07.04z"
+                    fill="#FF5252"
+                  />
+                  <path
+                    d="m16.18 15.14-3.18-3.18L3.61 21.4c.35.36.92.4 1.57.04l11-6.3"
+                    fill="#69F0AE"
+                  />
+                  <path
+                    d="M16.18 8.82 5.18 2.52c-.65-.36-1.22-.32-1.57.04l9.39 9.39 3.18-3.13z"
+                    fill="#40C4FF"
+                  />
+                </svg>
+                <span class="store-badge__text">
+                  <span class="store-badge__line1">Get it on</span>
+                  <span class="store-badge__line2">Google Play</span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="phone-mockup phone-mockup--secondary">
+              <div class="phone-mockup__frame">
+                <img
+                  src="images/screen-rewards.png"
+                  alt="Fish Log Co. quarterly rewards screen"
+                  onerror="this.closest('.phone-mockup').style.display='none';"
+                />
+              </div>
+            </div>
+            <div class="phone-mockup phone-mockup--primary">
+              <div class="phone-mockup__frame">
+                <img
+                  src="images/hero-phone.png"
+                  alt="Fish Log Co. home screen on iPhone"
+                  onerror="this.closest('.phone-mockup').classList.add('phone-mockup--empty'); this.style.display='none';"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features">
+    <!-- Stats strip -->
+    <section class="stats">
       <div class="container container--wide">
-        <div class="features__grid">
-          <div class="feature-card">
-            <span class="feature-card__icon">&#x1F3A3;</span>
-            <h3 class="feature-card__title">Log Your Catches</h3>
-            <p class="feature-card__desc">
-              Record species, length, photos, and more for every fish you catch.
-            </p>
+        <div class="stats__grid reveal">
+          <div class="stat">
+            <svg class="stat__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6.5 12c0-3 2.5-5 5.5-5 4 0 7 2.5 7 5s-3 5-7 5c-3 0-5.5-2-5.5-5z" />
+              <path d="M19 12l3-2v4l-3-2z" />
+              <circle cx="15" cy="11" r="0.6" fill="currentColor" />
+            </svg>
+            <div class="stat__value">5</div>
+            <div class="stat__label">Mandatory species supported</div>
           </div>
-          <div class="feature-card">
-            <span class="feature-card__icon">&#x1F4CB;</span>
-            <h3 class="feature-card__title">DMF Reporting</h3>
-            <p class="feature-card__desc">
-              Submit mandatory harvest reports directly to the NC Division of
-              Marine Fisheries.
-            </p>
+          <div class="stat">
+            <svg class="stat__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2v20" />
+              <path d="M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            <div class="stat__value">Free</div>
+            <div class="stat__label">To download &amp; report</div>
           </div>
-          <div class="feature-card">
-            <span class="feature-card__icon">&#x1F3C6;</span>
-            <h3 class="feature-card__title">Earn Rewards</h3>
-            <p class="feature-card__desc">
-              Join the quarterly rewards program and win prizes for responsible
-              reporting.
-            </p>
+          <div class="stat">
+            <svg class="stat__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+            </svg>
+            <div class="stat__value">Instant</div>
+            <div class="stat__label">Direct to NC DMF</div>
           </div>
-          <div class="feature-card">
-            <span class="feature-card__icon">&#x1F4F8;</span>
-            <h3 class="feature-card__title">Community Feed</h3>
-            <p class="feature-card__desc">
-              Share your catches with fellow anglers and see what others are
-              reeling in.
-            </p>
+          <div class="stat">
+            <svg class="stat__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="8" width="18" height="13" rx="2" />
+              <path d="M12 8v13" />
+              <path d="M19 4.5c0 1.4-2 3.5-3 3.5s-3-2.1-3-3.5a3 3 0 0 1 6 0z" />
+              <path d="M11 4.5c0 1.4-2 3.5-3 3.5S5 5.9 5 4.5a3 3 0 0 1 6 0z" />
+            </svg>
+            <div class="stat__value">4&times;/yr</div>
+            <div class="stat__label">Rewards drawings</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section class="content">
+    <!-- Screenshot bento showcase -->
+    <section class="showcase wave-top wave-top--blue">
+      <div class="container container--wide">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Built for NC anglers</span>
+          <h2 class="section-title">Everything you need at the dock.</h2>
+          <p class="section-lede">
+            A pocket-sized field guide, harvest report tool, and rewards
+            program designed for the way North Carolinians actually fish.
+          </p>
+        </div>
+
+        <div class="bento">
+          <article class="bento__tile bento__tile--a reveal">
+            <div class="bento__image">
+              <img
+                src="images/screen-bulletin.png"
+                alt="Fish Log Co. bulletin board screen"
+                onerror="this.style.display='none';"
+              />
+            </div>
+            <div class="bento__body">
+              <span class="bento__eyebrow">Stay in the know</span>
+              <h3 class="bento__title">A bulletin board worth checking.</h3>
+              <p class="bento__desc">
+                Advisories, season openings, and regulation updates surface
+                the moment they're posted &mdash; so you never miss a rule
+                change mid-trip.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento__tile bento__tile--b reveal">
+            <div class="bento__image">
+              <img
+                src="images/screen-rewards.png"
+                alt="Fish Log Co. quarterly rewards screen"
+                onerror="this.style.display='none';"
+              />
+            </div>
+            <div class="bento__body">
+              <span class="bento__eyebrow">Quarterly rewards</span>
+              <h3 class="bento__title">Catch. Report. Win.</h3>
+              <p class="bento__desc">
+                Every valid harvest report enters you in a quarterly drawing
+                for gear, memberships, and prizes from our partners.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento__tile bento__tile--c reveal">
+            <div class="bento__image">
+              <img
+                src="images/screen-harvest.png"
+                alt="Fish Log Co. mandatory harvest reporting card"
+                onerror="this.style.display='none';"
+              />
+            </div>
+            <div class="bento__body">
+              <span class="bento__eyebrow">Mandatory reporting</span>
+              <h3 class="bento__title">
+                Five species. One tap to comply.
+              </h3>
+              <p class="bento__desc">
+                Flounder, Red Drum, Spotted Seatrout, Striped Bass, and
+                Weakfish &mdash; submit reports straight to NC DMF in under a
+                minute, with offline support for when you're out of signal.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Species row -->
+    <section class="species-section wave-top wave-top--cream">
+      <div class="container container--wide">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Mandatory species</span>
+          <h2 class="section-title">The five fish NC asks you to report.</h2>
+        </div>
+        <div class="species reveal">
+          <div class="species__card">
+            <div class="species__swatch species__swatch--flounder">
+              <svg width="38" height="22" viewBox="0 0 44 24" aria-hidden="true">
+                <path
+                  class="species__fish-body"
+                  d="M2 12 Q2 4 14 4 Q26 4 32 9 Q34 7 36 4 L42 3 L40 12 L42 21 L36 20 Q34 17 32 15 Q26 20 14 20 Q2 20 2 12 Z"
+                />
+                <circle class="species__fish-eye" cx="9" cy="10" r="1.3" />
+                <path
+                  class="species__fish-gill"
+                  d="M15 7 Q14 12 15 17"
+                  fill="none"
+                  stroke-width="0.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="species__name">Flounder</div>
+          </div>
+          <div class="species__card">
+            <div class="species__swatch species__swatch--red-drum">
+              <svg width="38" height="22" viewBox="0 0 44 24" aria-hidden="true">
+                <path
+                  class="species__fish-body"
+                  d="M2 12 Q2 4 14 4 Q26 4 32 9 Q34 7 36 4 L42 3 L40 12 L42 21 L36 20 Q34 17 32 15 Q26 20 14 20 Q2 20 2 12 Z"
+                />
+                <circle class="species__fish-eye" cx="9" cy="10" r="1.3" />
+                <path
+                  class="species__fish-gill"
+                  d="M15 7 Q14 12 15 17"
+                  fill="none"
+                  stroke-width="0.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="species__name">Red Drum</div>
+          </div>
+          <div class="species__card">
+            <div class="species__swatch species__swatch--seatrout">
+              <svg width="38" height="22" viewBox="0 0 44 24" aria-hidden="true">
+                <path
+                  class="species__fish-body"
+                  d="M2 12 Q2 4 14 4 Q26 4 32 9 Q34 7 36 4 L42 3 L40 12 L42 21 L36 20 Q34 17 32 15 Q26 20 14 20 Q2 20 2 12 Z"
+                />
+                <circle class="species__fish-eye" cx="9" cy="10" r="1.3" />
+                <path
+                  class="species__fish-gill"
+                  d="M15 7 Q14 12 15 17"
+                  fill="none"
+                  stroke-width="0.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="species__name">Spotted Seatrout</div>
+          </div>
+          <div class="species__card">
+            <div class="species__swatch species__swatch--striped-bass">
+              <svg width="38" height="22" viewBox="0 0 44 24" aria-hidden="true">
+                <path
+                  class="species__fish-body"
+                  d="M2 12 Q2 4 14 4 Q26 4 32 9 Q34 7 36 4 L42 3 L40 12 L42 21 L36 20 Q34 17 32 15 Q26 20 14 20 Q2 20 2 12 Z"
+                />
+                <circle class="species__fish-eye" cx="9" cy="10" r="1.3" />
+                <path
+                  class="species__fish-gill"
+                  d="M15 7 Q14 12 15 17"
+                  fill="none"
+                  stroke-width="0.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="species__name">Striped Bass</div>
+          </div>
+          <div class="species__card">
+            <div class="species__swatch species__swatch--weakfish">
+              <svg width="38" height="22" viewBox="0 0 44 24" aria-hidden="true">
+                <path
+                  class="species__fish-body"
+                  d="M2 12 Q2 4 14 4 Q26 4 32 9 Q34 7 36 4 L42 3 L40 12 L42 21 L36 20 Q34 17 32 15 Q26 20 14 20 Q2 20 2 12 Z"
+                />
+                <circle class="species__fish-eye" cx="9" cy="10" r="1.3" />
+                <path
+                  class="species__fish-gill"
+                  d="M15 7 Q14 12 15 17"
+                  fill="none"
+                  stroke-width="0.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="species__name">Weakfish</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works wave-top wave-top--blue">
       <div class="container">
-        <div class="card card--highlight">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">How it works</span>
+          <h2 class="section-title">Three steps from dock to drawing.</h2>
+        </div>
+        <div class="card reveal">
+          <div class="steps">
+            <div class="step">
+              <div class="step__number">1</div>
+              <div class="step__content">
+                <h3>Log your catch</h3>
+                <p>
+                  Snap a photo, pick a species, and capture length, area, and
+                  method. Works offline if you're out of cell range.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">2</div>
+              <div class="step__content">
+                <h3>Submit to NC DMF</h3>
+                <p>
+                  Mandatory harvest reports go straight to the Division of
+                  Marine Fisheries with a confirmation number for your
+                  records.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">3</div>
+              <div class="step__content">
+                <h3>Earn quarterly rewards</h3>
+                <p>
+                  Every report enters you in the current quarter's drawing
+                  for gear, memberships, and prizes from our partners.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Regulation -->
+    <section class="about">
+      <div class="container">
+        <div class="card card--highlight reveal">
           <h2 class="card__title">About Fish Log Co.</h2>
           <p class="card__text">
             Fish Log Co. is a mobile app designed for North Carolina anglers.
-            Starting December 2025, NC requires mandatory harvest reporting for
-            five key species: Red Drum, Southern Flounder, Spotted Seatrout,
-            Striped Bass, and Weakfish.
-          </p>
-          <p class="card__text">
-            Fish Log Co. makes this reporting simple, fast, and rewarding.
             Whether you're on the pier or in the boat, submit your reports in
             minutes and track your fishing journey over time.
           </p>
+          <p class="card__text">
+            We built Fish Log to make compliance feel less like paperwork and
+            more like part of the trip &mdash; quick, clear, and worth doing.
+          </p>
         </div>
 
-        <div class="card">
+        <div class="card card--warning reveal">
           <h2 class="card__title">NC Mandatory Harvest Reporting</h2>
           <p class="card__text">
-            North Carolina's mandatory harvest reporting program helps the
-            Division of Marine Fisheries collect critical data for sustainable
-            fisheries management. All anglers who catch and keep any of the five
-            mandatory species must report their harvest. Fish Log Co. is the
-            easiest way to stay compliant.
+            Starting December 2025, North Carolina requires mandatory harvest
+            reporting for five key species: Red Drum, Southern Flounder,
+            Spotted Seatrout, Striped Bass, and Weakfish. All anglers who
+            catch and keep any of these species must report their harvest.
+            Fish Log Co. is the easiest way to stay compliant.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="contact-card reveal">
+          <h2 class="contact-card__title">Ready to land your first report?</h2>
+          <p class="contact-card__text">
+            Free to download. No account required to file a report. Join
+            the rewards program when you're ready.
+          </p>
+          <div class="store-badges">
+            <a
+              href="https://apps.apple.com/us/app/fish-log-co/id6759081462"
+              class="store-badge"
+              aria-label="Download on the App Store"
+            >
+              <svg
+                class="store-badge__icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M17.05 12.04c-.02-2.07 1.7-3.07 1.78-3.12-.97-1.42-2.49-1.61-3.02-1.63-1.28-.13-2.51.76-3.16.76-.66 0-1.66-.74-2.74-.72-1.39.02-2.7.82-3.42 2.08-1.47 2.55-.37 6.3 1.04 8.36.7 1.01 1.52 2.13 2.6 2.09 1.05-.04 1.45-.67 2.71-.67s1.62.67 2.73.65c1.13-.02 1.84-1.02 2.53-2.03.8-1.16 1.12-2.3 1.14-2.35-.03-.01-2.17-.83-2.19-3.42zM14.99 6.07c.58-.7.97-1.68.86-2.65-.84.03-1.85.56-2.45 1.26-.54.61-1.01 1.6-.88 2.55.94.07 1.89-.47 2.47-1.16z"
+                />
+              </svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Download on the</span>
+                <span class="store-badge__line2">App Store</span>
+              </span>
+            </a>
+            <a
+              href="https://play.google.com/apps/testing/io.fishlog.app"
+              class="store-badge"
+              aria-label="Get it on Google Play"
+            >
+              <svg
+                class="store-badge__icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3.61 2.05c-.36.36-.57.92-.57 1.65v16.6c0 .73.21 1.29.57 1.65l.06.05L13 12.06v-.12L3.67 2l-.06.05z"
+                  fill="#FFD740"
+                />
+                <path
+                  d="M16.11 15.18 13 12.06v-.12l3.11-3.12.07.04 3.69 2.1c1.05.6 1.05 1.58 0 2.18l-3.69 2.1-.07.04z"
+                  fill="#FF5252"
+                />
+                <path
+                  d="m16.18 15.14-3.18-3.18L3.61 21.4c.35.36.92.4 1.57.04l11-6.3"
+                  fill="#69F0AE"
+                />
+                <path
+                  d="M16.18 8.82 5.18 2.52c-.65-.36-1.22-.32-1.57.04l9.39 9.39 3.18-3.13z"
+                  fill="#40C4FF"
+                />
+              </svg>
+              <span class="store-badge__text">
+                <span class="store-badge__line1">Get it on</span>
+                <span class="store-badge__line2">Google Play</span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -175,5 +556,88 @@
         </p>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        var reveals = document.querySelectorAll('.reveal');
+        function revealAll() {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+        }
+        if (!('IntersectionObserver' in window)) {
+          revealAll();
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0, rootMargin: '0px 0px 25% 0px' }
+        );
+        reveals.forEach(function (el) { observer.observe(el); });
+        setTimeout(revealAll, 2500);
+      })();
+
+      // Micro-interactions: magnetic store badges + hero phone parallax.
+      // Skipped on touch devices and when prefers-reduced-motion is set.
+      (function () {
+        var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+        if (prefersReduced || !hasFinePointer) return;
+
+        // Magnetic store badges
+        document.querySelectorAll('.store-badge').forEach(function (badge) {
+          badge.addEventListener('mousemove', function (e) {
+            var r = badge.getBoundingClientRect();
+            var dx = e.clientX - (r.left + r.width / 2);
+            var dy = e.clientY - (r.top + r.height / 2);
+            badge.style.setProperty('--magnet-x', (dx * 0.18).toFixed(2) + 'px');
+            badge.style.setProperty('--magnet-y', (dy * 0.18).toFixed(2) + 'px');
+          });
+          badge.addEventListener('mouseleave', function () {
+            badge.style.setProperty('--magnet-x', '0px');
+            badge.style.setProperty('--magnet-y', '0px');
+          });
+        });
+
+        // Hero phone parallax
+        var hero = document.querySelector('.hero');
+        var primary = document.querySelector('.phone-mockup--primary');
+        var secondary = document.querySelector('.phone-mockup--secondary');
+        if (!hero || !primary) return;
+        var pendingFrame = null;
+        var lastEvent = null;
+        function applyParallax() {
+          pendingFrame = null;
+          if (!lastEvent) return;
+          var r = hero.getBoundingClientRect();
+          var nx = ((lastEvent.clientX - r.left) / r.width) - 0.5;
+          var ny = ((lastEvent.clientY - r.top) / r.height) - 0.5;
+          primary.style.setProperty('--parallax-x', (nx * 14).toFixed(2) + 'px');
+          primary.style.setProperty('--parallax-y', (ny * 14).toFixed(2) + 'px');
+          if (secondary) {
+            secondary.style.setProperty('--parallax-x', (nx * -18).toFixed(2) + 'px');
+            secondary.style.setProperty('--parallax-y', (ny * -18).toFixed(2) + 'px');
+          }
+        }
+        hero.addEventListener('mousemove', function (e) {
+          lastEvent = e;
+          if (pendingFrame == null) pendingFrame = requestAnimationFrame(applyParallax);
+        });
+        hero.addEventListener('mouseleave', function () {
+          lastEvent = null;
+          primary.style.setProperty('--parallax-x', '0px');
+          primary.style.setProperty('--parallax-y', '0px');
+          if (secondary) {
+            secondary.style.setProperty('--parallax-x', '0px');
+            secondary.style.setProperty('--parallax-y', '0px');
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
