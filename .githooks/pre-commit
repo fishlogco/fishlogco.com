@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# Stamp the stylesheet cache-buster in every page with style.css's content
+# hash, so a CSS deploy is never masked by a browser's cached copy.
+#
+# GitHub Pages serves style.css with `cache-control: max-age=600`. Browsers
+# happily revalidate the HTML while reusing stale CSS, which ships updated
+# markup with the old styling. Versioning the href gives each CSS revision its
+# own cache key.
+#
+# Enable in a fresh clone with:  git config core.hooksPath .githooks
+
+set -e
+
+# Nothing to do unless style.css is actually part of this commit.
+git diff --cached --name-only | grep -qx 'style.css' || exit 0
+
+stamp=$(git show :style.css | shasum -a 256 | cut -c1-8)
+
+# Stamping rewrites files on disk, so refuse to run when a page carries
+# unstaged edits -- re-adding it would sweep unrelated work into the commit.
+for f in *.html; do
+  grep -q 'href="style\.css' "$f" || continue
+  grep -q "href=\"style\.css?v=$stamp\"" "$f" && continue
+  if ! git diff --quiet -- "$f"; then
+    echo "pre-commit: $f needs a cache-buster stamp but has unstaged changes." >&2
+    echo "            Stage or stash them, then commit again." >&2
+    exit 1
+  fi
+done
+
+stamped=""
+for f in *.html; do
+  grep -q 'href="style\.css' "$f" || continue
+  before=$(cat "$f")
+  sed -i '' -E "s|href=\"style\.css(\?v=[^\"]*)?\"|href=\"style.css?v=$stamp\"|g" "$f"
+  if [ "$before" != "$(cat "$f")" ]; then
+    git add "$f"
+    stamped="$stamped $f"
+  fi
+done
+
+[ -n "$stamped" ] && echo "pre-commit: stamped style.css?v=$stamp in$stamped"
+
+exit 0

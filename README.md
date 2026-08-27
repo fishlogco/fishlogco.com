@@ -54,4 +54,22 @@ Use these URLs when submitting to the app stores:
 
 All pages are plain HTML/CSS with no build step required. Edit the `.html` files directly, commit, and push. Changes deploy automatically.
 
+### Local setup
+
+Run this once per clone to enable the repo's git hooks:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The `pre-commit` hook stamps each page's `<link rel="stylesheet">` with a hash
+of `style.css` (`style.css?v=<hash>`) whenever `style.css` is part of a commit.
+GitHub Pages serves CSS with `cache-control: max-age=600`, so without the stamp
+a browser can load updated HTML alongside a cached stylesheet and render the
+page with stale styling. Don't edit the `?v=` value by hand.
+
+If the hook reports that a page has unstaged changes, stage or stash them and
+commit again -- it refuses to re-add a file whose working copy has edits you
+didn't stage.
+
 The in-app legal content in `src/screens/LegalDocumentScreen.tsx` should be kept in sync with the website. The app shows a summary and links to the full hosted document via the "View Full ..." button.

@@ -1,4 +1,6 @@
 /* Fish Log - Ocean-Themed Website Stylesheet */
+/* The ?v= stamp on each page's <link> is rewritten from this file's
+   content hash by .githooks/pre-commit -- don't edit it by hand. */
 
 /* ===== CSS Reset & Base ===== */
 *, *::before, *::after {
