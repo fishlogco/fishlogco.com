@@ -1100,6 +1100,38 @@ img {
   letter-spacing: -0.2px;
 }
 
+/* Android build isn't live yet - show a non-interactive "coming soon" badge */
+.store-badge--soon {
+  background: rgba(0, 0, 0, 0.55);
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.3);
+  cursor: default;
+  box-shadow: none;
+}
+
+.store-badge--soon:hover {
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: none;
+}
+
+.store-badge--soon .store-badge__icon,
+.store-badge--soon .store-badge__text {
+  opacity: 0.65;
+}
+
+.store-badge__flag {
+  margin-left: 2px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 /* On the dark hero, badges look good. On the cream CTA, use white versions */
 .contact-card .store-badges {
   justify-content: center;

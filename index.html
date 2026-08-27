@@ -95,10 +95,11 @@
                   <span class="store-badge__line2">App Store</span>
                 </span>
               </a>
-              <a
-                href="https://play.google.com/apps/testing/io.fishlog.app"
-                class="store-badge"
-                aria-label="Get it on Google Play"
+              <span
+                class="store-badge store-badge--soon"
+                role="img"
+                aria-label="Coming soon to Google Play"
+                title="The Android app is coming soon"
               >
                 <svg
                   class="store-badge__icon"
@@ -125,10 +126,11 @@
                   />
                 </svg>
                 <span class="store-badge__text">
-                  <span class="store-badge__line1">Get it on</span>
+                  <span class="store-badge__line1">Coming soon to</span>
                   <span class="store-badge__line2">Google Play</span>
                 </span>
-              </a>
+                <span class="store-badge__flag">Soon</span>
+              </span>
             </div>
           </div>
           <div class="hero__visual">
@@ -482,10 +484,11 @@
                 <span class="store-badge__line2">App Store</span>
               </span>
             </a>
-            <a
-              href="https://play.google.com/apps/testing/io.fishlog.app"
-              class="store-badge"
-              aria-label="Get it on Google Play"
+            <span
+              class="store-badge store-badge--soon"
+              role="img"
+              aria-label="Coming soon to Google Play"
+              title="The Android app is coming soon"
             >
               <svg
                 class="store-badge__icon"
@@ -510,10 +513,11 @@
                 />
               </svg>
               <span class="store-badge__text">
-                <span class="store-badge__line1">Get it on</span>
+                <span class="store-badge__line1">Coming soon to</span>
                 <span class="store-badge__line2">Google Play</span>
               </span>
-            </a>
+              <span class="store-badge__flag">Soon</span>
+            </span>
           </div>
         </div>
       </div>
@@ -593,7 +597,7 @@
         if (prefersReduced || !hasFinePointer) return;
 
         // Magnetic store badges
-        document.querySelectorAll('.store-badge').forEach(function (badge) {
+        document.querySelectorAll('.store-badge:not(.store-badge--soon)').forEach(function (badge) {
           badge.addEventListener('mousemove', function (e) {
             var r = badge.getBoundingClientRect();
             var dx = e.clientX - (r.left + r.width / 2);
