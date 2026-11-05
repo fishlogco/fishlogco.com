@@ -1778,32 +1778,48 @@ img {
     font-size: 32px;
   }
 
-  /* Bento: horizontal layout with image LEFT on mobile too */
+  /* Bento: stack the screenshot above the copy on phones. Side by side, a
+     42/58 split left the copy ~23 characters a line and squeezed the
+     portrait screenshot to ~98px wide -- too narrow to read either. Stacked,
+     the copy gets the full width and the screenshot is shown large and
+     cropped to its top, so the app UI is actually legible. */
   .bento__tile,
   .bento__tile--a,
   .bento__tile--b,
   .bento__tile--c {
-    flex-direction: row !important;
-    height: 280px !important;
-  }
-
-  .bento__tile--c {
-    height: 340px !important;
+    flex-direction: column !important;
+    height: auto !important;
   }
 
   .bento__image,
   .bento__tile--a .bento__image,
   .bento__tile--b .bento__image,
   .bento__tile--c .bento__image {
-    width: 42% !important;
-    height: 100% !important;
+    width: 100% !important;
+    height: 220px !important;
     min-height: 0 !important;
-    padding: 16px !important;
+    padding: 22px 22px 0 !important;
+    align-items: flex-start !important;
+    /* Line the screenshot up with the copy below rather than centring it. */
+    justify-content: flex-start !important;
+  }
+
+  /* Overflows the panel's fixed height and is clipped by its overflow:hidden,
+     leaving the top of the screen visible at full width. */
+  .bento__image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    align-self: flex-start;
+    border-radius: 18px 18px 0 0;
+    clip-path: inset(5.5% 0 0 0 round 18px 18px 0 0);
   }
 
   .bento__body {
-    padding: 20px 20px 22px !important;
-    width: 58%;
+    padding: 22px 22px 26px !important;
+    width: 100%;
   }
 
   .bento__eyebrow {
@@ -1820,6 +1836,9 @@ img {
   .bento__desc {
     font-size: 13px;
     line-height: 1.45;
+    /* Stacked, the copy spans the whole tile, which at tablet width would
+       run past 100 characters a line. Cap the measure instead of the tile. */
+    max-width: 56ch;
   }
 
   .species {
@@ -1863,22 +1882,19 @@ img {
     font-size: 28px;
   }
 
-  .bento__tile,
-  .bento__tile--a,
-  .bento__tile--b,
-  .bento__tile--c {
-    height: 250px !important;
-  }
-
-  .bento__tile--c {
-    height: 320px !important;
+  .bento__image,
+  .bento__tile--a .bento__image,
+  .bento__tile--b .bento__image,
+  .bento__tile--c .bento__image {
+    height: 190px !important;
+    padding: 18px 18px 0 !important;
   }
 
   .bento__title {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .bento__desc {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
