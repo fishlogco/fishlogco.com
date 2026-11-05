@@ -36,7 +36,7 @@
   <header class="page-header">
     <div class="container">
       <h1 class="page-header__title">Privacy Policy</h1>
-      <p class="page-header__meta">Last Updated: August 2026</p>
+      <p class="page-header__meta">Last Updated: November 2026</p>
     </div>
   </header>
 
@@ -45,7 +45,7 @@
     <div class="container">
       <div class="legal-card">
 
-        <div class="legal-meta">&#128197; Last Updated: August 2026</div>
+        <div class="legal-meta">&#128197; Last Updated: November 2026</div>
 
         <!-- Table of Contents -->
         <div class="toc">
@@ -93,13 +93,14 @@
           <li><strong>Device identifier:</strong> We generate a unique, random device identifier (UUID) the first time you open the App. This identifier is stored locally on your device and persists across app sessions and updates. It is used to associate your harvest reports with your device and to provide continuity of service.</li>
           <li><strong>Anonymous user record:</strong> When you first use the App, we create a record associated with your device identifier in our database. This allows you to submit harvest reports without creating an account. If you later register as a Rewards Member, your anonymous history may be linked to your new account.</li>
           <li><strong>Platform and device information:</strong> We collect your device platform (iOS or Android), operating system version, and app version. This information is included with feedback submissions and used to diagnose issues.</li>
+          <li><strong>Crash, error and performance diagnostics:</strong> When the App crashes or hits an error, and for a sample of normal use, we collect technical information to find and fix problems. This includes error messages and stack traces, a log of recent App activity before the error, the screens and controls involved, request and screen timing, and App session data. It also includes your device model, operating system version, language setting, memory and battery state, whether the device is rooted or jailbroken, and the App version. This information is linked to your user ID or an identifier for your installation. See Section 4.7.</li>
           <li><strong>Advertisement interactions:</strong> We record aggregated (non-personal) impression counts and click counts for advertisements shown in the app. This data is not linked to individual user profiles, is not used for personalized ad targeting, and is not shared with advertisers.</li>
         </ul>
 
         <h3>2.3 Information We Do Not Collect</h3>
         <ul>
           <li>We do not automatically access your GPS location. The App includes a location library but does not request location permissions or track your position.</li>
-          <li>We do not use third-party analytics or advertising SDKs in the App (such as Google Analytics, Firebase Analytics, Facebook SDK, or AdMob). Our website uses Cloudflare Web Analytics, which is cookieless and does not track you across sites &mdash; see Section 4.6.</li>
+          <li>We do not use advertising SDKs or marketing analytics SDKs in the App (such as Google Analytics, Firebase Analytics, Facebook SDK, or AdMob). We do use Sentry for crash reporting and performance monitoring; see Section 4.7. Our website uses Cloudflare Web Analytics, which is cookieless and does not track you across sites; see Section 4.6.</li>
           <li>We do not collect contacts, calendar data, microphone input, or browsing history.</li>
           <li>We do not access your device's photo library, contacts, or camera without your explicit action (e.g., choosing to attach a photo to a catch).</li>
         </ul>
@@ -139,15 +140,19 @@
         <h3>4.6 Cloudflare</h3>
         <p>Our website (not the App) uses <a href="https://www.cloudflare.com" target="_blank" rel="noopener">Cloudflare</a> Web Analytics to measure page views and traffic sources. It does not use cookies, does not fingerprint your device, and does not track you across other websites. Cloudflare processes this data on our behalf; refer to <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a> for more details.</p>
 
+        <h3>4.7 Sentry</h3>
+        <p>We use <a href="https://sentry.io" target="_blank" rel="noopener">Sentry</a> to monitor crashes, errors and App performance. Sentry receives the diagnostic information described in Section 2.2, and our Sentry account is hosted in the United States. We do not send your email address as part of your Sentry user record, and we remove email addresses we detect from reports before they leave your device. Because error messages and activity logs describe what the App was doing, they can occasionally include other details from the action that failed. Like any online service, Sentry sees your IP address when a report arrives; we have configured it not to store your IP address or your approximate location with new reports. We use this information only to diagnose and improve the App. Refer to <a href="https://sentry.io/privacy/" target="_blank" rel="noopener">Sentry's Privacy Policy</a> for more details.</p>
+
         <!-- 5. Data Retention -->
         <h2 id="retention">5. Data Retention</h2>
         <p>We retain your personal data for as long as your account is active or as needed to provide you services. Specifically:</p>
         <ul>
           <li><strong>Account data:</strong> Retained until you delete your account.</li>
           <li><strong>Harvest reports:</strong> Retained in our system until account deletion. Reports already submitted to NC DMF are retained by the government agency per their own policies.</li>
-          <li><strong>Photos:</strong> Stored in our cloud storage until you delete your account.</li>
+          <li><strong>Photos:</strong> Stored in our cloud storage. Photos are not currently removed automatically when you delete your account; see Section 8.</li>
           <li><strong>Anonymous user records:</strong> Retained until the associated device identifier data is deleted upon request.</li>
           <li><strong>Feedback submissions:</strong> Retained for as long as necessary to resolve your issue and improve the App.</li>
+          <li><strong>Diagnostic data:</strong> Retained by Sentry for up to 30 days, then deleted.</li>
           <li><strong>Local device data:</strong> Stored on your device until you clear the app's data or uninstall the App.</li>
         </ul>
 
@@ -157,8 +162,8 @@
         <ul>
           <li>All data is transmitted over encrypted HTTPS connections.</li>
           <li>Authentication tokens are stored using your device's secure storage system (Keychain on iOS, Keystore on Android) when available, with an encrypted fallback.</li>
-          <li>Our database uses row-level security policies to ensure users can only access their own data.</li>
-          <li>Account deletion is performed as a server-side cascading transaction to ensure complete removal of all associated data.</li>
+          <li>Our database uses row-level security policies to control access to data.</li>
+          <li>Account deletion is performed as a server-side transaction that removes your account data from our database. Section 8 describes what is and isn't removed.</li>
         </ul>
         <p>However, no method of electronic transmission or storage is 100% secure. While we strive to use commercially reasonable means to protect your information, we cannot guarantee absolute security.</p>
 
@@ -168,7 +173,7 @@
         <ul>
           <li><strong>Access:</strong> You can view your profile data and harvest history within the App at any time.</li>
           <li><strong>Correction:</strong> You can update your profile information, including name, email, phone number, and zip code, through the App's edit profile screen.</li>
-          <li><strong>Deletion:</strong> You can delete your account and all associated data at any time. See the <a href="#deletion">Account Deletion</a> section below.</li>
+          <li><strong>Deletion:</strong> You can delete your account at any time. See the <a href="#deletion">Account Deletion</a> section below for what is removed.</li>
           <li><strong>Data portability:</strong> You can request a copy of your data by contacting us at the email below.</li>
           <li><strong>Withdraw consent:</strong> You can stop using the App at any time. Rewards Members can delete their accounts to withdraw consent for data processing.</li>
         </ul>
@@ -181,7 +186,7 @@
           <li><strong>In the App (immediate):</strong> Go to Profile &gt; Edit Profile &gt; scroll to the bottom and tap "Delete Account." You will be asked to confirm twice. Deletion is processed immediately.</li>
           <li><strong>By email (within 7 days):</strong> Send a request to <a href="mailto:fishlogco@gmail.com?subject=Account%20Deletion%20Request">fishlogco@gmail.com</a> with the subject "Account Deletion Request" and the email address associated with your account. We will process your request within 7 calendar days and confirm by email.</li>
         </ul>
-        <p>When you delete your account, all of the following are permanently removed: your profile information, harvest reports, catch photos, fishing statistics, achievements, rewards entries, and community feed posts. Reports already submitted to NC DMF cannot be removed from their systems.</p>
+        <p>When you delete your account, all of the following are permanently removed from our database: your profile information, harvest reports, fishing statistics, achievements, rewards entries, and community feed posts. Reports already submitted to NC DMF cannot be removed from their systems. Photos you uploaded are not currently removed automatically; to have them removed, email us at <a href="mailto:fishlogco@gmail.com">fishlogco@gmail.com</a>. Diagnostic data held by Sentry is not deleted immediately and expires as described in Section 5.</p>
         <p>For full details, see our <a href="delete-account.html">Account Deletion page</a>.</p>
 
         <!-- 9. Children's Privacy -->
