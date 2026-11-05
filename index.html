@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Fish Log Co. - NC Harvest Reporting Made Easy</title>
+    <title>Fish Log Co. &ndash; NC Harvest Reporting Made Easy</title>
     <meta
       name="description"
       content="Log your catches, submit harvest reports to the NC Division of Marine Fisheries, and earn rewards for responsible angling."
     />
+    <link rel="canonical" href="https://fishlogco.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fish Log Co." />
+    <meta property="og:url" content="https://fishlogco.com/" />
+    <meta property="og:title" content="Fish Log Co. – NC Harvest Reporting Made Easy" />
+    <meta property="og:description" content="Log your catches, submit harvest reports to the NC Division of Marine Fisheries, and earn rewards for responsible angling." />
+    <meta property="og:image" content="https://fishlogco.com/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fish Log Co. — report your harvest, earn rewards." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fish Log Co. – NC Harvest Reporting Made Easy" />
+    <meta name="twitter:description" content="Log your catches, submit harvest reports to the NC Division of Marine Fisheries, and earn rewards for responsible angling." />
+    <meta name="twitter:image" content="https://fishlogco.com/images/og-image.png" />
+
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <meta name="theme-color" content="#0B548B" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -17,28 +32,39 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
     />
-    <link rel="stylesheet" href="style.css?v=c31fb98e" />
+    <link rel="stylesheet" href="style.css?v=8e91cd56" />
+    <noscript>
+      <!-- .reveal starts at opacity 0 and JS adds .is-visible; without this
+           everything below the hero is invisible when JS is off. -->
+      <style>
+        .reveal { opacity: 1; transform: none; }
+      </style>
+    </noscript>
+
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Navigation -->
     <nav class="nav">
       <div class="container container--wide nav__inner">
         <a href="index.html" class="nav__brand">
-          <img src="images/icon.png" alt="Fish Log" class="nav__logo" />
+          <img
+            src="images/icon.webp"
+            alt="Fish Log"
+            class="nav__logo"
+            width="128"
+            height="128"
+          />
           <span class="nav__title">Fish Log Co.</span>
         </a>
         <button
           class="nav__toggle"
-          onclick="
-            document
-              .querySelector('.nav__links')
-              .classList.toggle('nav__links--open')
-          "
-          aria-label="Toggle menu"
-        >
-          &#9776;
-        </button>
-        <div class="nav__links">
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        ></button>
+        <div class="nav__links" id="nav-links">
           <a href="index.html" class="nav__link nav__link--active">Home</a>
           <a href="privacy.html" class="nav__link">Privacy Policy</a>
           <a href="terms.html" class="nav__link">Terms of Use</a>
@@ -48,7 +74,7 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="main" tabindex="-1">
       <div class="container">
         <div class="hero__grid">
           <div class="hero__text">
@@ -137,8 +163,11 @@
             <div class="phone-mockup phone-mockup--secondary">
               <div class="phone-mockup__frame">
                 <img
-                  src="images/screen-rewards.png"
+                  src="images/screen-rewards.webp"
                   alt="Fish Log Co. quarterly rewards screen"
+                  width="720"
+                  height="1561"
+                  decoding="async"
                   onerror="this.closest('.phone-mockup').style.display='none';"
                 />
               </div>
@@ -146,8 +175,11 @@
             <div class="phone-mockup phone-mockup--primary">
               <div class="phone-mockup__frame">
                 <img
-                  src="images/hero-phone.png"
+                  src="images/hero-phone.webp"
                   alt="Fish Log Co. home screen on iPhone"
+                  width="800"
+                  height="1734"
+                  fetchpriority="high"
                   onerror="this.closest('.phone-mockup').classList.add('phone-mockup--empty'); this.style.display='none';"
                 />
               </div>
@@ -215,8 +247,12 @@
           <article class="bento__tile bento__tile--a reveal">
             <div class="bento__image">
               <img
-                src="images/screen-bulletin.png"
+                src="images/screen-bulletin.webp"
                 alt="Fish Log Co. bulletin board screen"
+                width="720"
+                height="1561"
+                loading="lazy"
+                decoding="async"
                 onerror="this.style.display='none';"
               />
             </div>
@@ -234,8 +270,12 @@
           <article class="bento__tile bento__tile--b reveal">
             <div class="bento__image">
               <img
-                src="images/screen-rewards.png"
+                src="images/screen-rewards.webp"
                 alt="Fish Log Co. quarterly rewards screen"
+                width="720"
+                height="1561"
+                loading="lazy"
+                decoding="async"
                 onerror="this.style.display='none';"
               />
             </div>
@@ -252,8 +292,12 @@
           <article class="bento__tile bento__tile--c reveal">
             <div class="bento__image">
               <img
-                src="images/screen-harvest.png"
+                src="images/screen-harvest.webp"
                 alt="Fish Log Co. mandatory harvest reporting card"
+                width="720"
+                height="1561"
+                loading="lazy"
+                decoding="async"
                 onerror="this.style.display='none';"
               />
             </div>
@@ -445,7 +489,7 @@
         <div class="card card--warning reveal">
           <h2 class="card__title">NC Mandatory Harvest Reporting</h2>
           <p class="card__text">
-            Starting December 2025, North Carolina requires mandatory harvest
+            Since December 2025, North Carolina has required mandatory harvest
             reporting for five key species: Red Drum, Southern Flounder,
             Spotted Seatrout, Striped Bass, and Weakfish. All anglers who
             catch and keep any of these species must report their harvest.
@@ -530,9 +574,12 @@
           <div>
             <div class="footer__brand">
               <img
-                src="images/icon.png"
+                src="images/icon.webp"
                 alt="Fish Log Co."
                 class="footer__logo"
+                width="128"
+                height="128"
+                loading="lazy"
               />
               <span class="footer__name">Fish Log Co.</span>
             </div>
@@ -652,5 +699,35 @@
     src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"token": "77dce0aebab24898af52726a972e599d"}'
   ></script>
+    <script>
+      // Mobile nav: reflects state to aria-expanded, and closes on link tap,
+      // outside click, or Escape.
+      (function () {
+        var toggle = document.querySelector('.nav__toggle');
+        var links = document.querySelector('.nav__links');
+        if (!toggle || !links) return;
+        function setOpen(open) {
+          links.classList.toggle('nav__links--open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+        }
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+        links.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setOpen(false);
+        });
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.nav')) setOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
+      })();
+    </script>
+
   </body>
 </html>

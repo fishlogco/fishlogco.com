@@ -16,6 +16,10 @@
   --secondary: #06747F;
   --secondary-light: #A2E5EF;
   --accent: #FF7F25;
+  /* Darker orange for text and icons: --accent itself only reaches 2.3-2.5:1
+     on the light backgrounds, well under the 4.5:1 AA threshold. This clears
+     4.5:1 on white, --background and --cream alike. */
+  --accent-text: #B35009;
   --background: #E5F4FF;
   --pearl-white: #F5F7F8;
   --white: #FFFFFF;
@@ -24,7 +28,7 @@
   --text-tertiary: #78909C;
   --border: #B2DEF9;
   --ocean-deep: #042C5C;
-  --ocean-surface: #85C5E5;
+  --ocean-surface: #9BD2EE;
   --success: #2E7D4B;
   --error: #D32F2F;
   --shadow: rgba(7, 52, 94, 0.12);
@@ -39,6 +43,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Keep anchor targets clear of the sticky nav (72px) when jumping to a
+     fragment -- without this, #section headings land underneath it. */
+  scroll-padding-top: 88px;
   /* Navy fallback so iOS Safari safe-area / notch tints navy, not light blue. */
   background-color: var(--primary-dark);
 }
@@ -183,10 +190,46 @@ img {
   background: rgba(255, 255, 255, 0.15);
   border: none;
   color: var(--white);
-  font-size: 24px;
-  padding: 6px 10px;
+  font-size: 22px;
+  line-height: 1;
+  /* 44px square: the old 6px/10px padding made it 41px. */
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* Swap the hamburger glyph for a close glyph while the menu is open. */
+.nav__toggle::before {
+  content: '\2630';
+}
+
+.nav__toggle[aria-expanded='true']::before {
+  content: '\2715';
+}
+
+/* ===== Skip link ===== */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: 0 0 10px 10px;
+  background: var(--white);
+  color: var(--primary-dark);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus-visible,
+.skip-link:focus {
+  top: 0;
 }
 
 /* ===== Hero Section ===== */
@@ -468,6 +511,99 @@ img {
   line-height: 1.7;
 }
 
+/* Modifiers replacing hardcoded inline styles on delete-account.html. */
+.card__title--error {
+  color: var(--error);
+}
+
+.card__text--spaced {
+  margin-top: 16px;
+}
+
+.card__text--lead {
+  margin-bottom: 20px;
+}
+
+.card__text--fine {
+  font-size: 14px;
+}
+
+.card__list {
+  margin: 12px 0 0 24px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.card__action {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ===== FAQ accordion (no JS -- native <details>) ===== */
+.faq {
+  border-top: 1px solid var(--border);
+}
+
+.faq:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  /* Comfortably over the 44px minimum target size. */
+  padding: 18px 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.faq__q::after {
+  content: '';
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-right: 2px solid var(--accent-text);
+  border-bottom: 2px solid var(--accent-text);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.2s ease;
+}
+
+.faq[open] .faq__q::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+.faq__q:hover {
+  color: var(--primary);
+}
+
+.faq__a {
+  padding: 0 0 18px;
+}
+
+.faq__a p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__q::after {
+    transition: none;
+  }
+}
+
 .card__text + .card__text {
   margin-top: 12px;
 }
@@ -530,17 +666,29 @@ img {
   border: 1px solid var(--border);
 }
 
-.legal-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--primary-light);
+/* Back to top, for the 13- and 14-section legal documents. */
+.legal-top {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.legal-top a {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--pearl-white);
+  border: 1px solid var(--border);
   color: var(--primary);
-  padding: 8px 16px;
-  border-radius: 10px;
   font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 28px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.legal-top a:hover {
+  background: var(--primary-light);
+  text-decoration: none;
 }
 
 /* ===== Steps / Instructions ===== */
@@ -674,7 +822,7 @@ img {
 .footer__links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2px;
 }
 
 .footer__link {
@@ -682,6 +830,11 @@ img {
   font-size: 14px;
   transition: color 0.2s ease;
   text-decoration: none;
+  /* These were 22px tall -- under the 24px minimum target size, and far
+     under 44px for thumbs. The mobile block takes them the rest of the way. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
 }
 
 .footer__link:hover {
@@ -699,7 +852,8 @@ img {
 .footer__bottom {
   text-align: center;
   font-size: 12px;
-  opacity: 0.6;
+  /* Was also opacity 0.6 on top of the parent's 70% white, which landed at
+     3.6:1 -- under AA for 12px text. The inherited 70% alone is 7.5:1. */
 }
 
 /* ===== Utilities ===== */
@@ -774,10 +928,17 @@ img {
   margin-bottom: 12px;
 }
 
+/* Numbered, to match the "1. Introduction" headings these link to --
+   list-style was none, so the contents and the document disagreed. */
 .toc__list {
-  list-style: none;
+  list-style: decimal;
   margin: 0;
-  padding: 0;
+  padding-left: 24px;
+}
+
+.toc__list li::marker {
+  color: var(--text-tertiary);
+  font-weight: 600;
 }
 
 .toc__list li {
@@ -793,7 +954,7 @@ img {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .nav__toggle {
-    display: block;
+    display: inline-flex;
   }
 
   .nav__links {
@@ -859,6 +1020,11 @@ img {
     align-items: center;
   }
 
+  /* Full 44px thumb targets once the footer stacks. */
+  .footer__link {
+    min-height: 44px;
+  }
+
   .contact-card {
     padding: 28px 20px;
   }
@@ -887,7 +1053,7 @@ img {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 14px;
 }
 
@@ -1126,7 +1292,7 @@ img {
   padding: 3px 8px;
   border-radius: 999px;
   background: var(--accent);
-  color: var(--white);
+  color: var(--ocean-deep);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.6px;
@@ -1172,7 +1338,7 @@ img {
 }
 
 .stat__icon {
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 14px;
 }
 
@@ -1263,7 +1429,7 @@ img {
     0 30px 60px rgba(7, 52, 94, 0.05);
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   display: flex;
-  height: 480px;
+  height: 420px;
 }
 
 .bento__tile:hover {
@@ -1275,9 +1441,14 @@ img {
     0 40px 80px rgba(7, 52, 94, 0.08);
 }
 
-.bento__tile--a { grid-column: span 7; flex-direction: row; }
-.bento__tile--b { grid-column: span 5; flex-direction: row-reverse; }
-.bento__tile--c { grid-column: span 12; flex-direction: row-reverse; height: 540px; }
+/* Full-width alternating rows. The old 7/5 two-up squeezed tile B's copy to
+   ~17 characters a line (8 lines for three sentences) and tile A's to ~28.
+   These screenshots are portrait, so a tile narrow enough to sit two-across
+   can't also hold a readable column -- even at 1440px it only bought ~34
+   characters. One per row gives every tile the 60-70 that tile C already had. */
+.bento__tile--a { grid-column: span 12; flex-direction: row; }
+.bento__tile--b { grid-column: span 12; flex-direction: row-reverse; }
+.bento__tile--c { grid-column: span 12; flex-direction: row; height: 460px; }
 
 .bento__image {
   position: relative;
@@ -1288,7 +1459,9 @@ img {
   align-items: center;
   justify-content: center;
   padding: 28px;
-  width: 50%;
+  /* These screenshots are portrait and height-constrained, so a narrower
+     panel crops only empty gradient and buys the copy column real width. */
+  width: 42%;
   height: 100%;
 }
 
@@ -1297,9 +1470,12 @@ img {
 }
 
 .bento__image img {
+  /* A definite height (not `max-height` against `width: auto`) so the image
+     still has a layout box before it loads -- otherwise it measures 0x0,
+     never intersects the viewport, and `loading="lazy"` never fires. */
+  height: 100%;
   width: auto;
   max-width: 100%;
-  max-height: 100%;
   object-fit: contain;
   border-radius: 22px;
   box-shadow: 0 12px 32px rgba(7, 52, 94, 0.3);
@@ -1321,7 +1497,7 @@ img {
   font-weight: 600;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 12px;
 }
 
@@ -1535,24 +1711,6 @@ img {
 }
 
 /* ===== Responsive overrides for new sections ===== */
-@media (max-width: 960px) {
-  .bento__tile--a,
-  .bento__tile--c {
-    grid-column: span 12;
-  }
-
-  .bento__tile--b {
-    grid-column: span 12;
-    flex-direction: row;
-  }
-
-  .bento__tile--b .bento__image {
-    width: 44%;
-    height: auto;
-    min-height: 100%;
-  }
-}
-
 @media (max-width: 768px) {
   .hero {
     padding-top: 56px;
@@ -1565,12 +1723,14 @@ img {
     gap: 40px;
   }
 
+  /* Pitch and CTA first on small screens -- the phone mockup is 500px tall
+     and used to push the App Store button a full screen below the fold. */
   .hero__text {
-    order: 2;
+    order: 1;
   }
 
   .hero__visual {
-    order: 1;
+    order: 2;
     min-height: 440px;
   }
 

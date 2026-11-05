@@ -41,18 +41,44 @@ When you're ready to use a custom domain (e.g., `fishlog.app` or `fishlog.co`):
 | Support | `support.html` | `/support.html` | Contact info and FAQ |
 | Delete Account | `delete-account.html` | `/delete-account.html` | Required by both stores (account deletion instructions) |
 
+Also served: `robots.txt` and `sitemap.xml`. Every page carries a canonical
+URL plus Open Graph / Twitter card tags pointing at `images/og-image.png`
+(1200x630) -- regenerate that image if the hero copy or screenshot changes.
+
 ## App Store URLs
 
 Use these URLs when submitting to the app stores:
 
-- **Privacy Policy URL:** `https://fishlogco.github.io/privacy.html`
-- **Terms of Use URL:** `https://fishlogco.github.io/terms.html`
-- **Support URL:** `https://fishlogco.github.io/support.html`
-- **Account Deletion URL:** `https://fishlogco.github.io/delete-account.html`
+- **Privacy Policy URL:** `https://fishlogco.com/privacy.html`
+- **Terms of Use URL:** `https://fishlogco.com/terms.html`
+- **Support URL:** `https://fishlogco.com/support.html`
+- **Account Deletion URL:** `https://fishlogco.com/delete-account.html`
 
 ## Updating Content
 
 All pages are plain HTML/CSS with no build step required. Edit the `.html` files directly, commit, and push. Changes deploy automatically.
+
+### Screenshots
+
+The pages reference `images/*.webp`, not the `.png` originals. The PNGs are the
+1290x2796 source exports; the WebP copies are resized to roughly 2x their
+largest on-page size, which takes the home page from ~8.2 MB of images to
+~130 KB on first paint (the three below-the-fold screenshots are
+`loading="lazy"`).
+
+After replacing a screenshot PNG, regenerate its WebP:
+
+```bash
+python3 -c "
+from PIL import Image
+w = 720  # 800 for hero-phone.png
+im = Image.open('images/screen-harvest.png').convert('RGB')
+im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(
+    'images/screen-harvest.webp', 'WEBP', quality=82, method=6)"
+```
+
+Then update that `<img>`'s `width`/`height` attributes to the new WebP's pixel
+dimensions -- they're what reserves layout space before the image loads.
 
 ### Local setup
 

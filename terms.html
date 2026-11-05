@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Terms of Use - Fish Log</title>
+  <title>Terms of Use &ndash; Fish Log Co.</title>
   <meta name="description" content="Fish Log Terms of Use. Read the terms and conditions for using the Fish Log mobile application.">
+  <link rel="canonical" href="https://fishlogco.com/terms.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fish Log Co." />
+  <meta property="og:url" content="https://fishlogco.com/terms.html" />
+  <meta property="og:title" content="Terms of Use – Fish Log Co." />
+  <meta property="og:description" content="Fish Log Terms of Use. Read the terms and conditions for using the Fish Log mobile application." />
+  <meta property="og:image" content="https://fishlogco.com/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fish Log Co. — report your harvest, earn rewards." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Terms of Use – Fish Log Co." />
+  <meta name="twitter:description" content="Fish Log Terms of Use. Read the terms and conditions for using the Fish Log mobile application." />
+  <meta name="twitter:image" content="https://fishlogco.com/images/og-image.png" />
+
   <link rel="icon" type="image/png" href="images/favicon.png">
   <meta name="theme-color" content="#0B548B">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=c31fb98e">
+  <link rel="stylesheet" href="style.css?v=8e91cd56">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="nav">
     <div class="container container--wide nav__inner">
       <a href="index.html" class="nav__brand">
-        <img src="images/icon.png" alt="Fish Log" class="nav__logo">
-        <span class="nav__title">Fish Log</span>
+        <img src="images/icon.webp" alt="Fish Log Co." class="nav__logo" width="128" height="128">
+        <span class="nav__title">Fish Log Co.</span>
       </a>
-      <button class="nav__toggle" onclick="document.querySelector('.nav__links').classList.toggle('nav__links--open')" aria-label="Toggle menu">&#9776;</button>
-      <div class="nav__links">
+      <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        ></button>
+      <div class="nav__links" id="nav-links">
         <a href="index.html" class="nav__link">Home</a>
         <a href="privacy.html" class="nav__link">Privacy Policy</a>
         <a href="terms.html" class="nav__link nav__link--active">Terms of Use</a>
@@ -33,7 +55,7 @@
   </nav>
 
   <!-- Header -->
-  <header class="page-header">
+  <header class="page-header" id="main" tabindex="-1">
     <div class="container">
       <h1 class="page-header__title">Terms of Use</h1>
       <p class="page-header__meta">Last Updated: February 2026</p>
@@ -44,8 +66,6 @@
   <section class="legal">
     <div class="container">
       <div class="legal-card">
-
-        <div class="legal-meta">&#128197; Last Updated: February 2026</div>
 
         <!-- Table of Contents -->
         <div class="toc">
@@ -184,6 +204,8 @@
           North Carolina, USA
         </p>
 
+        <p class="legal-top"><a href="#main">Back to top</a></p>
+
       </div>
     </div>
   </section>
@@ -194,8 +216,8 @@
       <div class="footer__inner">
         <div>
           <div class="footer__brand">
-            <img src="images/icon.png" alt="Fish Log" class="footer__logo">
-            <span class="footer__name">Fish Log</span>
+            <img src="images/icon.webp" alt="Fish Log Co." class="footer__logo" width="128" height="128" loading="lazy">
+            <span class="footer__name">Fish Log Co.</span>
           </div>
           <p class="footer__copy">&copy; 2026 Fish Log Co. All rights reserved.</p>
         </div>
@@ -211,7 +233,7 @@
         </div>
       </div>
       <div class="footer__divider"></div>
-      <p class="footer__bottom">Fish Log is not affiliated with the NC Division of Marine Fisheries. Always consult official DMF sources for current regulations.</p>
+      <p class="footer__bottom">Fish Log Co. is not affiliated with the NC Division of Marine Fisheries. Always consult official DMF sources for current regulations.</p>
     </div>
   </footer>
 
@@ -221,5 +243,35 @@
   src="https://static.cloudflareinsights.com/beacon.min.js"
   data-cf-beacon='{"token": "77dce0aebab24898af52726a972e599d"}'
 ></script>
+    <script>
+      // Mobile nav: reflects state to aria-expanded, and closes on link tap,
+      // outside click, or Escape.
+      (function () {
+        var toggle = document.querySelector('.nav__toggle');
+        var links = document.querySelector('.nav__links');
+        if (!toggle || !links) return;
+        function setOpen(open) {
+          links.classList.toggle('nav__links--open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+        }
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+        links.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setOpen(false);
+        });
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.nav')) setOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
+      })();
+    </script>
+
 </body>
 </html>

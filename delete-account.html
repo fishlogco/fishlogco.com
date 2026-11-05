@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Delete Account - Fish Log</title>
+  <title>Delete Account &ndash; Fish Log Co.</title>
   <meta name="description" content="Instructions for deleting your Fish Log account and all associated data.">
+  <link rel="canonical" href="https://fishlogco.com/delete-account.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fish Log Co." />
+  <meta property="og:url" content="https://fishlogco.com/delete-account.html" />
+  <meta property="og:title" content="Delete Account – Fish Log Co." />
+  <meta property="og:description" content="Instructions for deleting your Fish Log account and all associated data." />
+  <meta property="og:image" content="https://fishlogco.com/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fish Log Co. — report your harvest, earn rewards." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Delete Account – Fish Log Co." />
+  <meta name="twitter:description" content="Instructions for deleting your Fish Log account and all associated data." />
+  <meta name="twitter:image" content="https://fishlogco.com/images/og-image.png" />
+
   <link rel="icon" type="image/png" href="images/favicon.png">
   <meta name="theme-color" content="#0B548B">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=c31fb98e">
+  <link rel="stylesheet" href="style.css?v=8e91cd56">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="nav">
     <div class="container container--wide nav__inner">
       <a href="index.html" class="nav__brand">
-        <img src="images/icon.png" alt="Fish Log" class="nav__logo">
-        <span class="nav__title">Fish Log</span>
+        <img src="images/icon.webp" alt="Fish Log Co." class="nav__logo" width="128" height="128">
+        <span class="nav__title">Fish Log Co.</span>
       </a>
-      <button class="nav__toggle" onclick="document.querySelector('.nav__links').classList.toggle('nav__links--open')" aria-label="Toggle menu">&#9776;</button>
-      <div class="nav__links">
+      <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        ></button>
+      <div class="nav__links" id="nav-links">
         <a href="index.html" class="nav__link">Home</a>
         <a href="privacy.html" class="nav__link">Privacy Policy</a>
         <a href="terms.html" class="nav__link">Terms of Use</a>
@@ -33,7 +55,7 @@
   </nav>
 
   <!-- Header -->
-  <header class="page-header">
+  <header class="page-header" id="main" tabindex="-1">
     <div class="container">
       <h1 class="page-header__title">Delete Your Account</h1>
       <p class="page-header__meta">Permanently remove your account and all associated data</p>
@@ -46,7 +68,7 @@
 
       <!-- Warning -->
       <div class="card card--error mb-md">
-        <h2 class="card__title" style="color: #D32F2F;">Important: This Action Is Permanent</h2>
+        <h2 class="card__title card__title--error">Important: This Action Is Permanent</h2>
         <p class="card__text">Deleting your account will permanently remove all of your data from Fish Log. This action cannot be undone. Please make sure you want to proceed before following the steps below.</p>
       </div>
 
@@ -54,7 +76,7 @@
       <div class="card mb-md">
         <h2 class="card__title">What Gets Deleted</h2>
         <p class="card__text">When you delete your account, the following data is permanently removed:</p>
-        <ul style="margin: 12px 0 0 24px; color: #546E7A; font-size: 15px; line-height: 1.8;">
+        <ul class="card__list">
           <li>Your profile information (name, email, phone, photo)</li>
           <li>All harvest reports you have submitted through the app</li>
           <li>Catch photos stored in the app</li>
@@ -63,13 +85,13 @@
           <li>Community catch feed posts</li>
           <li>Feedback submissions</li>
         </ul>
-        <p class="card__text" style="margin-top: 16px;"><strong>Note:</strong> Harvest reports that were already transmitted to the NC Division of Marine Fisheries cannot be deleted from their systems, as they are maintained by a government agency independent of Fish Log.</p>
+        <p class="card__text card__text--spaced"><strong>Note:</strong> Harvest reports that were already transmitted to the NC Division of Marine Fisheries cannot be deleted from their systems, as they are maintained by a government agency independent of Fish Log.</p>
       </div>
 
       <!-- In-App Deletion Steps -->
       <div class="card card--highlight mb-md">
         <h2 class="card__title">Option 1: Delete From the App</h2>
-        <p class="card__text" style="margin-bottom: 20px;">If you have access to the Fish Log app, this is the fastest way to delete your account:</p>
+        <p class="card__text card__text--lead">If you have access to the Fish Log app, this is the fastest way to delete your account:</p>
         <div class="steps">
           <div class="step">
             <div class="step__number">1</div>
@@ -106,12 +128,12 @@
       <div class="card mb-md">
         <h2 class="card__title">Option 2: Request Deletion by Email</h2>
         <p class="card__text">If you cannot access the app or prefer to request deletion by email, send a message to the address below. Please include the email address associated with your Fish Log account so we can locate your data.</p>
-        <div style="margin-top: 20px; text-align: center;">
+        <div class="card__action">
           <a href="mailto:fishlogco@gmail.com?subject=Account%20Deletion%20Request" class="btn btn--primary">
             &#9993; Email Account Deletion Request
           </a>
         </div>
-        <p class="card__text" style="margin-top: 16px; font-size: 14px;">Send your request to: <strong>fishlogco@gmail.com</strong><br>Subject line: "Account Deletion Request"<br>We will process your request within 7 business days and confirm by email once complete.</p>
+        <p class="card__text card__text--spaced card__text--fine">Send your request to: <strong>fishlogco@gmail.com</strong><br>Subject line: "Account Deletion Request"<br>We will process your request within 7 business days and confirm by email once complete.</p>
       </div>
 
       <!-- Anonymous Users -->
@@ -129,8 +151,8 @@
       <div class="footer__inner">
         <div>
           <div class="footer__brand">
-            <img src="images/icon.png" alt="Fish Log" class="footer__logo">
-            <span class="footer__name">Fish Log</span>
+            <img src="images/icon.webp" alt="Fish Log Co." class="footer__logo" width="128" height="128" loading="lazy">
+            <span class="footer__name">Fish Log Co.</span>
           </div>
           <p class="footer__copy">&copy; 2026 Fish Log Co. All rights reserved.</p>
         </div>
@@ -146,7 +168,7 @@
         </div>
       </div>
       <div class="footer__divider"></div>
-      <p class="footer__bottom">Fish Log is not affiliated with the NC Division of Marine Fisheries. Always consult official DMF sources for current regulations.</p>
+      <p class="footer__bottom">Fish Log Co. is not affiliated with the NC Division of Marine Fisheries. Always consult official DMF sources for current regulations.</p>
     </div>
   </footer>
 
@@ -156,5 +178,35 @@
   src="https://static.cloudflareinsights.com/beacon.min.js"
   data-cf-beacon='{"token": "77dce0aebab24898af52726a972e599d"}'
 ></script>
+    <script>
+      // Mobile nav: reflects state to aria-expanded, and closes on link tap,
+      // outside click, or Escape.
+      (function () {
+        var toggle = document.querySelector('.nav__toggle');
+        var links = document.querySelector('.nav__links');
+        if (!toggle || !links) return;
+        function setOpen(open) {
+          links.classList.toggle('nav__links--open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+        }
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+        links.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setOpen(false);
+        });
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.nav')) setOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
+      })();
+    </script>
+
 </body>
 </html>
