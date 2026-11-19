@@ -1161,9 +1161,8 @@ img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 40px;
-  border: 8px solid rgba(255, 255, 255, 0.08);
-  clip-path: inset(5.5% 0 0 0 round 40px);
+  /* The image is the whole phone (frame and transparent surround), so it
+     needs no rounding, border or status-bar crop of its own. */
 }
 
 .phone-mockup--primary {
@@ -1199,7 +1198,7 @@ img {
 }
 
 .phone-mockup--empty {
-  aspect-ratio: 9 / 19.5;
+  aspect-ratio: 1290 / 2686;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
   border-radius: 40px;
   border: 1px dashed rgba(255, 255, 255, 0.3);
@@ -1477,10 +1476,9 @@ img {
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  border-radius: 22px;
-  box-shadow: 0 12px 32px rgba(7, 52, 94, 0.3);
-  /* Crop iPhone status bar (top ~5.5% of each screenshot) */
-  clip-path: inset(5.5% 0 0 0 round 22px);
+  /* A framed phone on a transparent background: the shadow follows its
+     outline, which a box-shadow would not. */
+  filter: drop-shadow(0 12px 24px rgba(7, 52, 94, 0.28));
 }
 
 .bento__body {
@@ -1813,8 +1811,6 @@ img {
     max-height: none;
     object-fit: contain;
     align-self: flex-start;
-    border-radius: 18px 18px 0 0;
-    clip-path: inset(5.5% 0 0 0 round 18px 18px 0 0);
   }
 
   .bento__body {
